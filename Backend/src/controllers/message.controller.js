@@ -25,21 +25,13 @@ export const getMessages = async (req,res) => {
         const { id:userToChatId } = req.params; // Get the user ID from the request parameters
         const myId = req.user._id; // Get the logged-in user's ID from the request object
 
-        const messages = await Message.find({
-            $or: [
-                {
-                    sender: myId,
-                    receiver: userToChatId,
-                },
-                {
-                    sender: userToChatId,
-                    receiver: myId,
-                }
-            ],
+       const messages = await Message.find({
+       $or: [
+        { senderId: myId, receiverId: new mongoose.Types.ObjectId(userToChatId) },
+        { senderId: new mongoose.Types.ObjectId(userToChatId), receiverId: myId }
+            ]
         });
-        if (!messages || messages.length === 0) {
-            return res.status(400).json({ message: "No messages to show" });
-        }
+
         res.status(200).json({
             message: "Messages fetched successfully",
             messages: messages
@@ -74,9 +66,9 @@ export const sendMessage = async (req,res) => {
             // messageId: new mongoose.Types.ObjectId() // generate a new ID for messageId
         })
 
-        res.status(200).json({
-            message: "Message sent successfully",
-            message: await newMessage.save() // Save the new message to the database
+       res.status(200).json({
+        message: "Message sent successfully",
+        newMessage: await newMessage.save()  // <- Use unique key 'newMessage'
         })
 
         // todo: SOCKET.IO

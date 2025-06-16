@@ -8,6 +8,8 @@ export const useAuthStore = create ((set) => ({
     isSigningUp: false, // for loading animation
     isUpdatingProfile: false, // loading state for updating image on cloudinary through mongoDb
 
+    onlineUsers: [], // with socket
+
     isCheckingAuth: true, // check every time while the page refresh
     // in backend checkAuth function have to run so to understand the user is authenticated or not??
     checkAuth: async () => {
