@@ -8,13 +8,13 @@ const ProfilePage = () => {
 
   const [whisper, setWhisper] = useState('');
 
-  useEffect(() => {
-    const hasReloaded = sessionStorage.getItem('hasReloadedProfile');
-    if (!hasReloaded) {
-      sessionStorage.setItem('hasReloadedProfile', 'true');
-      window.location.reload();
-    }
-  }, []);
+  // useEffect(() => {
+  //   const hasReloaded = sessionStorage.getItem('hasReloadedProfile');
+  //   if (!hasReloaded) {
+  //     sessionStorage.setItem('hasReloadedProfile', 'true');
+  //     window.location.reload();
+  //   }
+  // }, []);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -32,7 +32,7 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen mt-10 pt-20 bg-[#2323239a] text-rose-200">
       <div className="max-w-6xl mx-auto p-4 py-8">
-        <div className="bg-gradient-to-br from-[#1c1c1e87] to-[#0F0F0F] shadow-[0_0_110px_] rounded-xl p-8 space-y-8 flex flex-col md:flex-row gap-8">
+        <div className="bg-gradient-to-br from-[#1c1c1e87] to-[#0F0F0F] shadow-[0_0_60px_red] rounded-xl p-8 space-y-8 flex flex-col md:flex-row gap-8">
 
           {/* LEFT SIDE: Avatar */}
           <div className="flex flex-col items-center md:items-start space-y-6 md:w-1/3">
