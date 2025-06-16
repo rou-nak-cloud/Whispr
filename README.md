@@ -1,2 +1,2 @@
 ## Under Construction !!!
-# "Whispr – Where style meets conversation."  -whispr
+# "Bring life to your messages before you hit send." -whispr
