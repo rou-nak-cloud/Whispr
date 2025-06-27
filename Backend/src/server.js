@@ -72,6 +72,8 @@ import { server } from './lib/socket.js';
 import authRoutes from './routes/auth.route.js';
 import messageRoutes from './routes/message.route.js';
 
+const __dirname = path.resolve();
+
 // Setup
 dotenv.config({ path: './.env' });
 app.use(cors({
@@ -87,15 +89,14 @@ app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
 
 // Path handling for __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
 
 // Production static files
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+
   app.get('*', (req, res) => {
-    console.log("Wildcard route hit");
-    res.sendFile(path.join(__dirname, '../Frontend/dist/index.html'));
+    res.sendFile(path.join(__dirname, '../Frontend', 'dist','index.html'));
   });
 }
 
