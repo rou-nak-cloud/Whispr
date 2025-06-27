@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 
 import express from 'express';
 import path from 'path'
+import { fileURLToPath } from "url";
 
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -19,11 +20,13 @@ app.use(cookieParser());
 dotenv.config({ path: './.env' })
 // dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
 const __dirname1 = path.resolve();
 if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname1, "../Frontend/dist")));
 
     app.get("*", (req,res) => {
+         console.log("Wildcard route hit");
         res.sendFile(path.join(__dirname1, "../Frontend", "dist", "index.html"));
         // res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
     })
