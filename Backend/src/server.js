@@ -21,13 +21,13 @@ dotenv.config({ path: './.env' })
 // dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname1 = path.resolve();
+const __dirname = path.dirname(__filename);
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname1, "../Frontend/dist")));
+    app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
     app.get("*", (req,res) => {
          console.log("Wildcard route hit");
-        res.sendFile(path.join(__dirname1, "../Frontend", "dist", "index.html"));
+        res.sendFile(path.join(__dirname, "../Frontend", "dist", "index.html"));
         // res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
     })
 }
