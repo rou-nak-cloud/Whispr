@@ -11,4 +11,4 @@ export const useThemeStore = create((set) => ({
 
         bubbleStyle: 'Rounded',
         setBubbleStyle: (style) => set({ bubbleStyle: style }),
-}))
+}));

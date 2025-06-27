@@ -51,7 +51,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
 
               <Link
-                to="/settings"
+                to={"/settings"}
                 className="flex items-center group relative overflow-hidden gap-2 px-3 py-1.5 rounded-md border-rose-400 text-rose-400 hover:bg-rose-600/20 hover:shadow-[#0000] transition-all duration-300"
               >
                 <Settings className="size-5 text-rose-500 transform transition-transform duration-300 group-hover:translate-x-4" />
@@ -61,7 +61,7 @@ const Navbar = () => {
               {authUser && (
                 <>
                   <Link
-                    to="/profile"
+                    to={"/profile"}
                     onClick={() => {
                       if(window.location.pathname !== "/profile") {
                         // When navigating from another page, do a full reload

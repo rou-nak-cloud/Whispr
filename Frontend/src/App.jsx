@@ -19,7 +19,7 @@ const App = () => {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
   const { theme } = useThemeStore();
 
-  console.log({ onlineUsers })
+  // console.log({ onlineUsers })
 
   useEffect(() => {
     checkAuth();
@@ -48,7 +48,6 @@ useEffect(() => {
        <Routes>
           <Route path='/' element={authUser ? <HomePage /> : <Navigate to="/login" />} />
           <Route path='/signUp' element={!authUser ? <SignUpPage /> : <Navigate  to="/" />} />
-          {/* !authUser in sign up page */}
           <Route path='/login' element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
           <Route path='/profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
           <Route path='/settings' element={ <SettingsPage />} />
@@ -56,7 +55,7 @@ useEffect(() => {
 
        <Toaster />
     </div>
-  )
-}
+  );
+};
 
 export default App

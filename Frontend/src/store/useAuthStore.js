@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 
 import { io } from 'socket.io-client'
 
-const BASE_URL =  import.meta.env.MODE === "development" ? "http://localhost:8000" : "/"
+const BASE_URL =  import.meta.env.MODE === "development" ? "http://localhost:8000" : "/";
 
 export const useAuthStore = create ((set, get) => ({
     authUser: null, // fresh person so everything is false
@@ -106,11 +106,11 @@ export const useAuthStore = create ((set, get) => ({
     connectSocket: () => {
         const { authUser } = get()
         const userId = authUser?.user?._id;
-        console.log({ userId })
+        // console.log({ userId })
 
           // Debug log
-          console.log("🔍 connectSocket called with authUser:", get().authUser);
-         console.log("Connecting socket with user:", authUser._id);
+        //   console.log("connectSocket called with authUser:", get().authUser);
+        //  console.log("Connecting socket with user:", authUser._id);
          
         if (!userId || get().socket?.connected) {
             console.warn(" Skipping socket connection - userId missing or already connected.");
