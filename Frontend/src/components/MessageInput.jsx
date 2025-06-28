@@ -189,7 +189,7 @@ const MessageInput = () => {
         onSubmit={handleSendMessage}
         className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap"
       >
-        <div className="flex-1 flex gap-2 bg-rose-950/60 rounded-full shadow-md px-4 py-2 pl-10 transition focus-within:ring-2 focus-within:ring-rose-700">
+        <div className="flex-1 flex gap-2 bg-rose-950/60 rounded-full shadow-md px-4 py-2 pl-5 transition focus-within:ring-2 focus-within:ring-rose-700">
           <input
             type="text"
             className="flex-1 outline-none bg-transparent text-md text-red-200 font-mono sm:text-base placeholder-red-400"
@@ -217,10 +217,10 @@ const MessageInput = () => {
 
         <button
           type="submit"
-          className="btn btn-md sm:btn-lg btn-circle bg-rose-500 hover:bg-rose-900 border-none text-white shadow-md shadow-rose-600"
+          className="btn btn-sm sm:btn-lg btn-circle bg-rose-500 hover:bg-rose-900 border-none text-white text-center shadow-md shadow-rose-600"
           disabled={!text.trim() && !imagePreview}
         >
-          <Send size={22} />
+          <Send size={20} />
         </button>
       </form>
     </div>
