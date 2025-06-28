@@ -118,16 +118,16 @@ export const useAuthStore = create ((set, get) => ({
             }
 
         // const userId = socket.handshake.query.userId;   => from socket
-        const newSocket = io(BASE_URL, {
+        const socket = io(BASE_URL, {
             query: {
                 // userId: authUser._id,
                   userId: userId,
             }
         })
-        newSocket.connect();
-        set({ socket: newSocket });
+        socket.connect();
+        set({ socket: socket });
 
-        newSocket.on("onlineOrOfflineUsers", (userIds) => {
+        socket.on("onlineOrOfflineUsers", (userIds) => {
             // console.log("Received online users:", userIds);
             set({ onlineUsers: userIds })
         })
