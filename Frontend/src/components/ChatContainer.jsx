@@ -59,14 +59,14 @@ const ChatContainer = () => {
     <div
       key={message._id}
       ref={isLastMessage ? messageEndRef : null} //  Only last message
-      className={`chat ${message.senderId === authUser._id ? "chat-end" : "chat-start"}`}
+      className={`chat ${message.senderId === authUser.user._id ? "chat-end" : "chat-start"}`}
     >
       <div className="chat-image avatar">
         <div className="size-10 rounded-full border-2 border-emerald-400 shadow-md">
           <img
             src={
-              message.senderId === authUser._id
-                ? authUser.profilePic || "/avatar.png"
+              message.senderId === authUser.user._id
+                ? authUser.user.profilePic || "/avatar.png"
                 : selectedUser.profilePic || "/avatar.png"
             }
             alt="profile pic"
@@ -77,7 +77,7 @@ const ChatContainer = () => {
 
       <div className="chat-header mb-1 flex items-center space-x-2">
         <span className="text-xs font-medium text-gray-600">
-          {message.senderId === authUser._id ? "You" : capitalizeName(selectedUser.fullname)}
+          {message.senderId === authUser.user._id ? "You" : capitalizeName(selectedUser.fullname)}
         </span>
         <time className="text-xs text-gray-400">
           {formatMessageTime(message.createdAt)}
@@ -86,7 +86,7 @@ const ChatContainer = () => {
 
       <div
         className={`chat-bubble flex flex-col p-3 rounded-2xl max-w-xs sm:max-w-sm md:max-w-md shadow-md ${
-          message.senderId === authUser._id
+          message.senderId === authUser.user._id
             ? "bg-gradient-to-br from-emerald-900 to-green-950 text-white"
             : "bg-gradient-to-br from-teal-700 to-teal-900 text-white"
         }`}

@@ -53,7 +53,7 @@ export const useChatStore = create((set,get) => ({
         const socket = useAuthStore.getState().socket;
 
         if (!selectedUser || !socket) {
-        console.warn("Socket or selected user missing in subscribeToMessages");
+        // console.warn("Socket or selected user missing in subscribeToMessages");
         return;
     }
 
@@ -72,7 +72,7 @@ export const useChatStore = create((set,get) => ({
     unsubscribeFromMessages: () => {
         const socket = useAuthStore.getState().socket;
          if (!socket) {
-        console.warn("Socket is null during unsubscribe. Skipping...");
+        // console.warn("Socket is null during unsubscribe. Skipping...");
         return;
     }
         socket.off("newMessage")

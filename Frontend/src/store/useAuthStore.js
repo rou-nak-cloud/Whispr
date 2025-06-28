@@ -105,53 +105,51 @@ export const useAuthStore = create ((set, get) => ({
     },
 
     // connect of Socket
-    // connectSocket: () => {
-    //     const { authUser } = get()
-    //     const userId = authUser?.user?._id;
-    //     console.log({ userId })
+    connectSocket: () => {
+        const { authUser } = get()
+        const userId = authUser?.user?._id;
+        // console.log({ userId })
 
-    //       // Debug log
-    //     //   console.log("connectSocket called with authUser:", get().authUser);
-    //     //  console.log("Connecting socket with user:", authUser._id);
+          // Debug log
+        //   console.log("connectSocket called with authUser:", get().authUser);
+        //  console.log("Connecting socket with user:", authUser._id);
          
-    //     if (!userId || get().socket?.connected) {
-    //         console.warn(" Skipping socket connection - userId missing or already connected.");
-    //         return;
-    //         }
+         if(!userId || get().socket?.connected) return;
 
-    //     // const userId = socket.handshake.query.userId;   => from socket
-    //     const socket = io(BASE_URL, {
-    //         query: {
-    //             // userId: authUser._id,
-    //               userId: userId,
-    //         }
-    //     })
-    //     socket.connect();
-    //     set({ socket: socket });
+        // const userId = socket.handshake.query.userId;   => from socket
+        const socket = io(BASE_URL, {
+            query: {
+                // userId: authUser._id,
+                  userId: userId,
+            }
+        })
+        socket.connect();
+        set({ socket: socket });
 
-    //     socket.on("onlineOrOfflineUsers", (userIds) => {
-    //         // console.log("Received online users:", userIds);
-    //         set({ onlineUsers: userIds })
-    //     })
-    // },
+        socket.on("onlineOrOfflineUsers", (userIds) => {
+            // console.log("Received online users:", userIds);
+            set({ onlineUsers: userIds })
+        })
+    },
 
-     connectSocket: () => {
-    const { authUser } = get();
-    if (!authUser || get().socket?.connected) return;
+//      connectSocket: () => {
+//     const { authUser } = get();
+//     console.log({ authUser })
+//     if (!authUser || get().socket?.connected) return;
 
-    const socket = io(BASE_URL, {
-      query: {
-        userId: authUser._id,
-      },
-    });
-    socket.connect();
+//     const socket = io(BASE_URL, {
+//       query: {
+//         userId: authUser._id,
+//       },
+//     });
+//     socket.connect();
 
-    set({ socket: socket });
+//     set({ socket: socket });
 
-    socket.on("onlineOrOfflineUsers", (userIds) => {
-      set({ onlineUsers: userIds });
-    });
-  },
+//     socket.on("onlineOrOfflineUsers", (userIds) => {
+//       set({ onlineUsers: userIds });
+//     });
+//   },
     disconnectSocket: () => {
         if(get().socket?.connected)  get().socket.disconnect()
     },
