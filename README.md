@@ -7,7 +7,7 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 ---
 
 ### 🌐 Ready to Whispr (Live)
-👉 [Whipsr - a chat app][https://whispr-a-chat-app.onrender.com](https://whispr-a-chat-app.onrender.com)
+👉 [Whispr - a chat app][https://whispr-a-chat-app.onrender.com](https://whispr-a-chat-app.onrender.com)
 ---
 | Login | Chat UI |
 |-------|---------|
