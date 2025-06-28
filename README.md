@@ -112,11 +112,6 @@ PRs and feature requests are welcome! Fork the repo, work on a branch, and open 
 
 ---
 
-## 🛡 License
 
-MIT License — see [`LICENSE`](./LICENSE) for details.
-
----
-
-*Made with ❤️ by rou-nak-cloud and *
+*Made with ❤️ by rou-nak-cloud and ❤️ mePradipta30*
 
