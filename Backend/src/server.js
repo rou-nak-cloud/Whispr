@@ -72,7 +72,9 @@ import { server } from './lib/socket.js';
 import authRoutes from './routes/auth.route.js';
 import messageRoutes from './routes/message.route.js';
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Setup
 dotenv.config({ path: './.env' });
