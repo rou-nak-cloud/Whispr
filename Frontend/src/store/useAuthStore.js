@@ -23,9 +23,10 @@ export const useAuthStore = create ((set, get) => ({
             const res = await axiosInstance.get("/auth/check")
             set({ authUser: res.data })
             // checking auth for user authentication is he log in or not? thats mean we have to run socketIO
-             setTimeout(() => {
-            get().connectSocket(); // Now reads the updated authUser
-            }, 0);
+             get().connectSocket();
+            //  setTimeout(() => {
+            // get().connectSocket(); // Now reads the updated authUser
+            // }, 0);
         } catch (error) {
             console.log("Error in authentication", error)
             set({ authUser: null })
@@ -63,10 +64,10 @@ export const useAuthStore = create ((set, get) => ({
             set({ authUser: res.data});
             toast.success("Logged in successfully")
             // SOCKETio
-            // get().connectSocket();
-           setTimeout(() => {
-            get().connectSocket(); // Now reads the updated authUser
-            }, 0);
+            get().connectSocket();
+        //    setTimeout(() => {
+        //     get().connectSocket(); // Now reads the updated authUser
+        //     }, 0);
 
         } catch (error) {
             toast.error(error.response.data.message)
@@ -106,7 +107,7 @@ export const useAuthStore = create ((set, get) => ({
     connectSocket: () => {
         const { authUser } = get()
         const userId = authUser?.user?._id;
-        // console.log({ userId })
+        console.log({ userId })
 
           // Debug log
         //   console.log("connectSocket called with authUser:", get().authUser);
