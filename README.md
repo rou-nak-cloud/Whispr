@@ -11,7 +11,7 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 ---
 | Login | Chat UI |
 |-------|---------|
-| ![Login Screenshot](public/screenshot-login.png) | ![Chat Screenshot](public/screenshot-chat.png) |
+| ![Login Screenshot](./screenshots/whisprHome.png) | ![Chat Screenshot](./screenshots/whisprChat.png) |
 
 ## 🚀 Features
 
@@ -28,7 +28,7 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 ## Prerequisites
 
 * **Node.js** ≥ 16.x
-* **Express** < 4.21.1 !important to deploy without error
+* **Express** < v4.21.1 !important to deploy without error
 * **npm** 
 * **MongoDB** (Local or Atlas)
 * **Cloudinary**
@@ -153,8 +153,8 @@ npm run dev        # starts express backend + React frontend via Vite
 
 ## ✅ Contributing
 
-PRs and feature requests are welcome! Fork the repo, work on a branch, and open a PR. Ensure linting, testing, and documentation are updated.
-
+PRs and feature requests are welcome! Fork the repo, work on a branch, and open a PR.
+Ensure linting, testing, and documentation are updated.
 ---
 
 *Made with ❤️ by rou-nak-cloud and ❤️ mePradipta30*
