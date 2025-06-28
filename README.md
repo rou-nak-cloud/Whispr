@@ -6,6 +6,13 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 
 ---
 
+### 🌐 Ready to Whispr (Live)
+👉 [Whipsr - a chat app][https://whispr-a-chat-app.onrender.com](https://whispr-a-chat-app.onrender.com)
+---
+| Login | Chat UI |
+|-------|---------|
+| ![Login Screenshot](public/screenshot-login.png) | ![Chat Screenshot](public/screenshot-chat.png) |
+
 ## 🚀 Features
 
 * Secure user authentication with JWT and HTTP-only cookies
@@ -13,7 +20,7 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 * One-to-one chats with text and image support
 * Auto-scroll and smooth UI experience
 * MongoDB backend support for user profiles (name, email, profile picture) and pictures for Cloudinary service.
-* Responsive React & TailwindCSS frontend
+* Responsive React & TailwindCSS frontend suitable for every device.
 * Backend served together with static React build for seamless deployment
 
 ---
@@ -21,9 +28,20 @@ A real-time chat application built with **Node.js**, **Express**, **Socket.IO**,
 ## Prerequisites
 
 * **Node.js** ≥ 16.x
+* **Express** < 4.21.1 !important to deploy without error
 * **npm** 
 * **MongoDB** (Local or Atlas)
 * **Cloudinary**
+
+---
+## 🛠️ Tech Stack
+
+| Frontend | Backend |
+|----------|---------|
+| React + Vite | Express.js |
+| Zustand | MongoDB + Mongoose |
+| Tailwind CSS | Socket.IO |
+| React Hot Toast | Cloudinary (for profile & image uploads) |
 
 ---
 
@@ -50,6 +68,9 @@ Create a `.env` in the `Backend` folder with:
 PORT=5000
 MONGODB_URI=your_mongo_uri
 JWT_SECRET=strong-secret
+CLOUDINARY_CLOUD_NAME=xxx
+CLOUDINARY_API_KEY=xxx
+CLOUDINARY_API_SECRET=xxx
 NODE_ENV=development
 ```
 
@@ -105,13 +126,36 @@ npm run dev        # starts express backend + React frontend via Vite
 * Chat bubbles, image previews, auto-scroll functionality
 
 ---
+---
+
+## 📦 2. GitHub Release Note (v1.0.0)
+
+```md
+🎉 Initial Release – v1.0.0
+
+🚀 Whispr is a real-time, full-stack chat application built using MERN + Socket.IO.
+
+###  What's Included:
+- Real-time chat via Socket.IO
+- Sign up / Log in / Logout
+- Zustand global store
+- Cloudinary uploads for images
+- Dark-themed modern UI
+- Mobile-responsive UI
+- Deployed with Render
+
+👉 [Live Demo](https://whispr-a-chat-app.onrender.com)
+
+🚀 Deployment --
+🔧 Backend: Deployed to Render
+🌐 Frontend: Bundled with Render or you can host via Netlify/Vercel
+
 
 ## ✅ Contributing
 
 PRs and feature requests are welcome! Fork the repo, work on a branch, and open a PR. Ensure linting, testing, and documentation are updated.
 
 ---
-
 
 *Made with ❤️ by rou-nak-cloud and ❤️ mePradipta30*
 
