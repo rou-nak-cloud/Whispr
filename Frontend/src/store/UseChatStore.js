@@ -71,6 +71,10 @@ export const useChatStore = create((set,get) => ({
 
     unsubscribeFromMessages: () => {
         const socket = useAuthStore.getState().socket;
+         if (!socket) {
+        console.warn("Socket is null during unsubscribe. Skipping...");
+        return;
+    }
         socket.off("newMessage")
     },
 
