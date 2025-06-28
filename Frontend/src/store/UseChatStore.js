@@ -50,13 +50,17 @@ export const useChatStore = create((set,get) => ({
 
     subscribeToMessages: () => {
         const { selectedUser } = get()
-        if(!selectedUser) return;
-
         const socket = useAuthStore.getState().socket;
+
+        if (!selectedUser || !socket) {
+        console.warn("Socket or selected user missing in subscribeToMessages");
+        return;
+    }
+
 
         // todo: optimize this by checking senderId is matching with userID or not?
         socket.on("newMessage", (newMessage) => {
-            const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._Id;
+            const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
             if(!isMessageSentFromSelectedUser) return;
 
             set({
